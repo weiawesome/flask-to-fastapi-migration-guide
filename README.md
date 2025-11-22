@@ -31,6 +31,19 @@
 - Flask vs FastAPI 基本語法對比
 - 體驗「寫完程式碼 = 完成文檔」的開發流程
 
+### [02 - 路由與請求處理轉換](./02-routing-and-requests/)
+學習如何將 Flask 的路由系統轉換為 FastAPI，並採用 Layered Architecture 設計：
+- **Layered Architecture**（分層架構）設計模式
+- **APIRouter** 組織和模組化路由
+- 路徑參數、查詢參數、請求體的處理方式
+- `request.args` → 查詢參數自動解析與驗證
+- `request.json` → Pydantic 模型自動驗證
+- 回應模型與自訂狀態碼
+- **Repository 模式**（資料存取層，目前用記憶體）
+- 簡單的依賴注入（Repository 注入）
+- Flask Blueprint vs FastAPI APIRouter 完整對比
+- 完整的使用者 CRUD 範例（增刪查改）
+
 
 
 ## 📝 授權
