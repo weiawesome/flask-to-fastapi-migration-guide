@@ -44,6 +44,18 @@
 - Flask Blueprint vs FastAPI APIRouter 完整對比
 - 完整的使用者 CRUD 範例（增刪查改）
 
+### [03 - 中間件與錯誤處理](./03-middleware/)
+掌握 FastAPI 的中間件系統和統一錯誤處理：
+- Flask `before_request` / `after_request` → FastAPI 中間件
+- **自定義中間件**（日誌、計時、請求追踪）
+- **CORS 跨域設定**（Flask-CORS → CORSMiddleware）
+- **統一錯誤處理**（類似 Flask `@app.errorhandler()`）
+- 自定義異常類別
+- 日誌系統整合與配置
+- **效能監控**與指標收集
+- 請求追踪（Request ID）
+- 中間件執行順序與最佳實踐
+
 
 
 ## 📝 授權
