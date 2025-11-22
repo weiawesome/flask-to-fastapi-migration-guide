@@ -8,6 +8,7 @@
 - [生態系統比較](#生態系統比較)
 - [適用場景分析](#適用場景分析)
 - [遷移決策指南](#遷移決策指南)
+- [📘 深入閱讀：WSGI vs ASGI 完整對比](./WSGI-vs-ASGI.md)
 
 ## 概述
 
@@ -86,6 +87,8 @@ Flask 和 FastAPI 都是優秀的 Python Web 框架，但它們設計理念和�
 | **WebSocket** | ⚠️ 需 Flask-SocketIO | ✅ 內建支援 | FastAPI 更簡單易用 |
 | **背景任務** | ⚠️ 需 Celery | ✅ 內建支援 | FastAPI 提供輕量解決方案 |
 | **事件驅動** | ❌ | ✅ | FastAPI 支援 startup/shutdown 事件 |
+
+> 💡 **深入了解：** 想知道為什麼 FastAPI 能提供這些異步優勢？閱讀 [WSGI vs ASGI 完整對比](./WSGI-vs-ASGI.md)，深入理解底層架構差異。
 
 ### 效能優化潛力
 
