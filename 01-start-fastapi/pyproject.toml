@@ -1,0 +1,10 @@
+[project]
+name = "01-start-fastapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.121.3",
+    "uvicorn>=0.38.0",
+]
