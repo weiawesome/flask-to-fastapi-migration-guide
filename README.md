@@ -20,6 +20,17 @@
 - 適用場景分析與決策指南
 - 遷移評估檢查清單
 
+### [01 - FastAPI 基礎入門](./01-start-fastapi/)
+從零開始建立你的第一個 FastAPI 應用，體驗自動文檔生成的強大功能：
+- 使用 `uv` 快速建立專案環境
+- 安裝 FastAPI 與 Uvicorn 依賴
+- 撰寫第一個 FastAPI 應用程式
+- OpenAPI 文檔配置與自訂
+- 啟動應用的多種方式
+- **自動生成的 API 文檔**（Swagger UI / ReDoc）
+- Flask vs FastAPI 基本語法對比
+- 體驗「寫完程式碼 = 完成文檔」的開發流程
+
 
 
 ## 📝 授權
