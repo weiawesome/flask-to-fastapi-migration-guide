@@ -14,21 +14,23 @@ def setup_logger(
 ) -> logging.Logger:
     """
     設定日誌系統
+    配置 root logger，讓所有子 logger 繼承配置並寫入檔案
     
     Args:
-        name: Logger 名稱
+        name: Logger 名稱（用於標識，但實際配置 root logger）
         level: 日誌級別（DEBUG, INFO, WARNING, ERROR, CRITICAL）
         log_file: 日誌檔案路徑（可選）
     
     Returns:
         logging.Logger: 配置好的 logger
     """
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
+    # 獲取 root logger 並配置
+    root_logger = logging.getLogger()
+    root_logger.setLevel(level)
     
     # 避免重複新增 handler
-    if logger.handlers:
-        return logger
+    if root_logger.handlers:
+        return logging.getLogger(name)
     
     # 日誌格式
     formatter = logging.Formatter(
@@ -40,7 +42,7 @@ def setup_logger(
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
+    root_logger.addHandler(console_handler)
     
     # File Handler（輸出到檔案）
     if log_file:
@@ -51,9 +53,10 @@ def setup_logger(
         file_handler = logging.FileHandler(log_file, encoding='utf-8')
         file_handler.setLevel(level)
         file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
+        root_logger.addHandler(file_handler)
     
-    return logger
+    # 返回指定名稱的 logger（會繼承 root logger 的配置）
+    return logging.getLogger(name)
 
 
 def get_logger(name: str) -> logging.Logger:
