@@ -1,0 +1,25 @@
+[project]
+name = "fastapi-testing-example"
+version = "1.0.0"
+description = "FastAPI Testing Framework Example - Flask test_client to FastAPI TestClient"
+requires-python = ">=3.9"
+dependencies = [
+    # FastAPI 核心
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    # HTTP 客戶端（用於外部服務）
+    "httpx>=0.25.0",
+    "pytest>=8.4.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    # 測試框架
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0",  # 用於測試異步端點
+    # 測試覆蓋率
+    "coverage>=7.3.0",
+    "pytest-cov>=4.1.0",
+]
