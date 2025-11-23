@@ -56,6 +56,19 @@
 - 請求追踪（Request ID）
 - 中間件執行順序與最佳實踐
 
+### [04 - 認證系統](./04-authenication/)
+實現完整的 JWT 認證系統，學習 FastAPI 的認證最佳實踐：
+- **JWT Token 創建與驗證**（使用 python-jose）
+- **密碼加密**（bcrypt 安全加密）
+- **三層架構設計**（Utils → Middleware → Router）
+- **認證中間件**（JWT 驗證與 ContextVar 線程安全）
+- **依賴注入模式**（`Depends(get_current_user)` 保護路由）
+- **用戶註冊與登入**（完整的認證流程）
+- **Swagger 文檔整合**（HTTPBearer 自動顯示認證選項）
+- Flask-Login / Flask-JWT → FastAPI 認證系統轉換
+- 職責分離架構設計原則
+- 安全考量與生產環境建議
+
 
 
 ## 📝 授權
