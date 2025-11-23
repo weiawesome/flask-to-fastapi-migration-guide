@@ -10,7 +10,8 @@ from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from middleware.request_id_middleware import get_request_id
 
-logger = logging.getLogger(__name__)
+# 使用統一的 logger 名稱，確保日誌會寫入檔案
+logger = logging.getLogger("fastapi_app")
 
 
 async def http_exception_handler(request: Request, exc: StarletteHTTPException):

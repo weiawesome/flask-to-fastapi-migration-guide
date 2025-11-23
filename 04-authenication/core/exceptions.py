@@ -43,3 +43,33 @@ class DatabaseException(HTTPException):
             detail=message
         )
 
+
+class InvalidCredentialsException(HTTPException):
+    """無效憑證例外"""
+    def __init__(self, identifier: str = "credentials"):
+        super().__init__(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Invalid credentials for {identifier}",
+            headers={"WWW-Authenticate": "Bearer"}
+        )
+
+
+class TokenExpiredException(HTTPException):
+    """Token 過期例外"""
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token has expired",
+            headers={"WWW-Authenticate": "Bearer"}
+        )
+
+
+class InvalidTokenException(HTTPException):
+    """無效 Token 例外"""
+    def __init__(self, detail: str = "Invalid token"):
+        super().__init__(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=detail,
+            headers={"WWW-Authenticate": "Bearer"}
+        )
+

@@ -7,7 +7,10 @@ from .exceptions import (
     UserNotFoundException,
     UserAlreadyExistsException,
     ValidationException,
-    DatabaseException
+    DatabaseException,
+    InvalidCredentialsException,
+    TokenExpiredException,
+    InvalidTokenException
 )
 from .error_handlers import (
     http_exception_handler,
@@ -21,6 +24,9 @@ __all__ = [
     "UserAlreadyExistsException",
     "ValidationException",
     "DatabaseException",
+    "InvalidCredentialsException",
+    "TokenExpiredException",
+    "InvalidTokenException",
     # Error Handlers
     "http_exception_handler",
     "validation_exception_handler",
