@@ -9,8 +9,13 @@ from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 # 導入自訂模組
-from routers import users
-from middleware import LoggingMiddleware, TimingMiddleware, RequestIDMiddleware
+from routers import users, auth
+from middleware import (
+    LoggingMiddleware,
+    TimingMiddleware,
+    RequestIDMiddleware,
+    JWTAuthMiddleware
+)
 from core import (
     http_exception_handler,
     validation_exception_handler,
@@ -54,7 +59,7 @@ app.add_exception_handler(Exception, general_exception_handler)
 
 # ========== 2. 加入中間件（注意順序！）==========
 # 中間件的執行順序：後加入的先執行
-# 所以這裡的順序是：CORS -> RequestID -> Timing -> Logging
+# 所以這裡的順序是：CORS -> JWT -> RequestID -> Timing -> Logging
 
 # CORS 中間件（跨域設定）
 app.add_middleware(
@@ -69,9 +74,11 @@ app.add_middleware(
 app.add_middleware(LoggingMiddleware)  # 日誌記錄
 app.add_middleware(TimingMiddleware)   # 效能監控
 app.add_middleware(RequestIDMiddleware)  # 請求追蹤
+app.add_middleware(JWTAuthMiddleware)  # JWT 認證（驗證 token 並提供 user_id）
 
 # ========== 3. 註冊路由 ==========
 app.include_router(users.router)
+app.include_router(auth.router)
 
 
 # ========== 4. 根路徑 ==========
