@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Redis 服務（用於 Celery broker 和 backend）
+  redis:
+    image: redis:7-alpine
+    container_name: fastapi-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - fastapi-network
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  fastapi-network:
+    driver: bridge
+

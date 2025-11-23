@@ -69,7 +69,44 @@
 - 職責分離架構設計原則
 - 安全考量與生產環境建議
 
+### [05 - SQLAlchemy ORM 資料庫整合](./05-sql-alchemy/)
+從記憶體儲存遷移到真實資料庫，學習 SQLAlchemy ORM 框架的核心概念：
+- **SQLAlchemy 基礎導入與配置**（Engine、Session、Base）
+- **ORM 模型定義**（Declarative Base、Column 定義）
+- **資料庫連接與 Session 管理**（依賴注入模式）
+- **Repository 模式與 SQLAlchemy 整合**（CRUD 操作）
+- **依賴注入資料庫 Session**（`get_db()` 函數）
+- **SQLite 資料庫初始化**（自動創建資料表）
+- **SQLAlchemy 查詢語法**（filter、order_by、分頁）
+- Flask-SQLAlchemy → FastAPI + SQLAlchemy 轉換
+- 資料庫無關設計（輕鬆切換 SQLite → PostgreSQL）
+- 生產環境最佳實踐
 
+### [06 - 異步編程實戰](./06-async-function/)
+深入理解 FastAPI 的核心優勢：異步編程，學習何時使用異步以及如何正確使用：
+- **async/await 基礎概念與語法**（異步函數定義與調用）
+- **三種異步模式對比**（`await` 順序執行 vs `asyncio.gather` 並發執行 vs Celery 完全異步）
+- **何時該用異步、何時不該用**（I/O 密集型 vs CPU 密集型）
+- **`asyncio.gather` 並發執行**（多個獨立操作的並發處理）
+- **背景任務處理**（FastAPI BackgroundTasks 與 Celery 分散式任務佇列）
+- **Celery 配置與使用**（Redis 作為訊息佇列、任務狀態查詢）
+- **異步 I/O 操作**（資料庫、HTTP 請求、檔案 I/O、Redis）
+- **錯誤處理與最佳實踐**（異步程式碼的錯誤處理模式）
+- 協程（coroutines）vs 線程（threads）概念澄清
+- 實戰範例與效能優化建議
+
+### [07 - 測試框架](./07-test-framework/)
+掌握 FastAPI 測試的最佳實踐，從 Flask 測試方式遷移到 FastAPI，建立完整的測試策略：
+- **Flask test_client → FastAPI TestClient** 完整對比與遷移指南
+- **異步測試設定**（pytest-asyncio、AsyncClient 使用）
+- **依賴覆寫在測試中的應用**（覆寫 Repository、Service 依賴）
+- **Mock Service 依賴**（Service 層相互依賴設計，便於測試中 Mock）
+- **測試覆蓋率自動計算**（pytest-cov 配置，達到 100% 覆蓋率）⭐
+- **完整架構示例**（Router → Service → Repository → Memory）
+- **測試組織方式**（獨立 `tests/` 目錄，Python 社區標準做法）
+- **測試 Fixtures 與共享配置**（conftest.py 最佳實踐）
+- **CI/CD 整合**（GitHub Actions 自動測試配置）
+- Flask 與 FastAPI 測試差異詳解與實戰範例
 
 ## 📝 授權
 

@@ -1,0 +1,23 @@
+[project]
+name = "fastapi-async-example"
+version = "1.0.0"
+description = "FastAPI Async Programming Example - await vs asyncio.gather"
+requires-python = ">=3.9"
+dependencies = [
+    # FastAPI 核心
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    # 背景任務（可選，用於 Celery 示例）
+    "celery>=5.3.0", # 分散式任務佇列
+    "celery[redis]>=5.3.0", # Celery Redis broker
+    "sqlalchemy>=2.0.44",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0",  # 用於測試
+]
+
