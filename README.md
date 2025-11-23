@@ -95,7 +95,18 @@
 - 協程（coroutines）vs 線程（threads）概念澄清
 - 實戰範例與效能優化建議
 
-
+### [07 - 測試框架](./07-test-framework/)
+掌握 FastAPI 測試的最佳實踐，從 Flask 測試方式遷移到 FastAPI，建立完整的測試策略：
+- **Flask test_client → FastAPI TestClient** 完整對比與遷移指南
+- **異步測試設定**（pytest-asyncio、AsyncClient 使用）
+- **依賴覆寫在測試中的應用**（覆寫 Repository、Service 依賴）
+- **Mock Service 依賴**（Service 層相互依賴設計，便於測試中 Mock）
+- **測試覆蓋率自動計算**（pytest-cov 配置，達到 100% 覆蓋率）⭐
+- **完整架構示例**（Router → Service → Repository → Memory）
+- **測試組織方式**（獨立 `tests/` 目錄，Python 社區標準做法）
+- **測試 Fixtures 與共享配置**（conftest.py 最佳實踐）
+- **CI/CD 整合**（GitHub Actions 自動測試配置）
+- Flask 與 FastAPI 測試差異詳解與實戰範例
 
 ## 📝 授權
 
