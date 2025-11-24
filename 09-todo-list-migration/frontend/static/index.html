@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List API 遷移實戰</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>📝 TO-DO List API</h1>
+                    <p class="header-subtitle">Flask → FastAPI 遷移實戰</p>
+                </div>
+                <div class="api-selector">
+                    <button type="button" class="api-btn" data-api="flask" id="flaskBtn">
+                        Flask (v1) - 同步
+                    </button>
+                    <button type="button" class="api-btn active" data-api="fastapi" id="fastapiBtn">
+                        FastAPI (v2) - 異步
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Auth Section -->
+        <section class="auth-section" id="authSection">
+            <div class="auth-card">
+                <h2>用戶認證</h2>
+                
+                <!-- Login Form -->
+                <div class="auth-form" id="loginForm">
+                    <h3>登入</h3>
+                    <form id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">電子郵件</label>
+                            <input type="email" id="loginEmail" required placeholder="alice@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">密碼</label>
+                            <input type="password" id="loginPassword" required placeholder="password123">
+                        </div>
+                        <button type="submit" class="btn btn-primary">登入</button>
+                    </form>
+                    <p class="auth-switch">
+                        還沒有帳號？<a href="#" id="showRegister">註冊</a>
+                    </p>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-form" id="registerForm" style="display: none;">
+                    <h3>註冊</h3>
+                    <form id="registerFormElement">
+                        <div class="form-group">
+                            <label for="registerUsername">用戶名</label>
+                            <input type="text" id="registerUsername" required placeholder="alice" minlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">電子郵件</label>
+                            <input type="email" id="registerEmail" required placeholder="alice@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">密碼</label>
+                            <input type="password" id="registerPassword" required placeholder="password123" minlength="6">
+                        </div>
+                        <button type="submit" class="btn btn-primary">註冊</button>
+                    </form>
+                    <p class="auth-switch">
+                        已有帳號？<a href="#" id="showLogin">登入</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Todo Section -->
+        <section class="todo-section" id="todoSection" style="display: none;">
+            <div class="user-info-card">
+                <div class="user-info-content">
+                    <div class="user-avatar">
+                        <span id="userInitial">U</span>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-email" id="userEmail"></div>
+                        <div class="user-status">已登入</div>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    <span class="logout-icon">🚪</span>
+                    <span>登出</span>
+                </button>
+            </div>
+
+            <div class="todo-main-container">
+                <!-- Left: Add Todo Form -->
+                <div class="todo-left-panel">
+                    <div class="add-todo-card">
+                        <h3 class="add-todo-title">新增待辦事項</h3>
+                        <form id="addTodoForm" class="add-todo-form">
+                            <div class="form-group">
+                                <label for="todoTitle">標題</label>
+                                <input type="text" id="todoTitle" required placeholder="輸入待辦事項標題..." maxlength="200">
+                            </div>
+                            <div class="form-group">
+                                <label for="todoDescription">描述（選填）</label>
+                                <textarea id="todoDescription" placeholder="輸入詳細描述..." rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                新增待辦事項
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Todo List -->
+                <div class="todo-right-panel">
+                    <div class="todo-list-header">
+                        <h2>我的待辦事項</h2>
+                        <div class="todo-count" id="todoCount">0 個</div>
+                    </div>
+                    <div class="todo-list-container">
+                        <div class="todo-list" id="todoList">
+                            <div class="loading" id="loading">
+                                <div class="spinner"></div>
+                                <span>載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Toast -->
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
