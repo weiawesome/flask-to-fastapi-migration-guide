@@ -136,6 +136,19 @@
 - **異步架構優勢分析**（並發量越大，優勢越明顯）⭐
 - 生產環境最佳實踐（連接池優化、Redis 連接預初始化、監控建議）
 
+### [10 - 部署與生產環境](./10-deployment/)
+完整的生產環境部署指南，從傳統 WSGI 部署遷移到現代化的容器化與編排部署：
+- **Gunicorn → Uvicorn/Hypercorn**（WSGI 到 ASGI 服務器遷移）
+- **Docker 容器化**（多階段構建、最佳實踐、健康檢查）
+- **Kubernetes 編排**（Deployment、Service、ConfigMap、Secret 管理）
+- **Horizontal Pod Autoscaler (HPA)**（自動擴縮容配置）⭐
+- **環境變數管理**（Pydantic Settings、12-Factor App、機密資訊管理）
+- **健康檢查端點**（Liveness、Readiness、Startup Probes）
+- **監控與日誌**（Prometheus 指標收集、Grafana 儀表板、結構化日誌）
+- **生產環境最佳實踐**（安全性、效能優化、可靠性設計、災難恢復）
+- 部署決策樹（根據規模選擇最適合的部署方式）
+- Flask vs FastAPI 部署架構對比與遷移指南
+
 ## 📝 授權
 
 本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 文件
