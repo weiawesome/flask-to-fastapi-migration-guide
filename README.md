@@ -122,6 +122,20 @@
 - **雙向心跳機制**（服務器 ping/pong + 客戶端 heartbeat/heartbeat_ack）
 - 生產環境最佳實踐（Redis 多服務器廣播、認證、速率限制）
 
+### [09 - 實戰案例：TO-DO List API 完整遷移](./09-todo-list-migration/)
+完整的生產級實戰案例，展示如何將一個完整的 Flask 應用遷移到 FastAPI，包含完整的 TO-DO List API：
+- **完整的 Flask 應用（同步架構）** vs **完整的 FastAPI 應用（異步架構）** 並行對比
+- **分層架構設計**（Router → Service → Repository）完整實作
+- **PostgreSQL 資料庫整合**（同步 SQLAlchemy vs 異步 SQLAlchemy + asyncpg）
+- **Redis 快取策略**（解決快取雪崩、穿透、擊穿三大問題）⭐
+- **JWT 認證系統**（用戶註冊、登入、登出，JWT 黑名單）
+- **TO-DO List CRUD**（完整的增刪查改操作）
+- **前端介面**（Nginx 靜態網站 + API 代理，可切換 Flask/FastAPI）⭐
+- **Docker Compose 容器化部署**（一鍵啟動所有服務）
+- **性能測試與對比**（k6 負載測試，驗證異步在高並發下的優勢）⭐
+- **異步架構優勢分析**（並發量越大，優勢越明顯）⭐
+- 生產環境最佳實踐（連接池優化、Redis 連接預初始化、監控建議）
+
 ## 📝 授權
 
 本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 文件
