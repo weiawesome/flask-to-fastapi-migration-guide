@@ -108,6 +108,20 @@
 - **CI/CD 整合**（GitHub Actions 自動測試配置）
 - Flask 與 FastAPI 測試差異詳解與實戰範例
 
+### [08 - WebSocket 與實時通訊](./08-realtime-websocket/)
+從 Flask-SocketIO 遷移到 FastAPI 原生的 WebSocket 支援，建立完整的實時通訊系統：
+- **Flask-SocketIO → FastAPI WebSocket** 完整遷移對比與差異分析
+- **WebSocket 基礎概念與語法**（連接、接收、發送訊息）
+- **連接管理（ConnectionManager）**（追蹤所有活躍連接、用戶識別）
+- **訊息廣播機制**（一對多廣播，包括發送者自己）⭐
+- **點對點私訊功能**（用戶名識別與定向發送）
+- **心跳檢測 (Heartbeat)** - 必須自己實現，FastAPI 沒有內建 ⭐
+- **前端 HTML/JavaScript 整合**（完整的聊天室範例）
+- **消息顯示樣式**（自己的消息顯示在右側，別人的在左側）⭐
+- **超時檢測與自動清理**（30 秒無活動自動斷開連接）
+- **雙向心跳機制**（服務器 ping/pong + 客戶端 heartbeat/heartbeat_ack）
+- 生產環境最佳實踐（Redis 多服務器廣播、認證、速率限制）
+
 ## 📝 授權
 
 本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 文件
